@@ -1,8 +1,7 @@
 {
   "functions": {
     "iptv.js": {
-      "runtime": "nodejs14.x",
-      "memory": 512
+      "runtime": "node@14"
     }
   }
 }
