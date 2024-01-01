@@ -72,6 +72,7 @@
     }
 
     #rulesContainer {
+      display: none;
       margin-top: 20px;
       text-align: left;
       color: #888;
@@ -79,6 +80,17 @@
 
     .rule {
       margin-bottom: 10px;
+    }
+
+    #readRulesButton {
+      background-color: #4285f4;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -107,6 +119,8 @@
       <div class="rule">❌ Only Tivimate Is Supported - Ott Navigator Soon.</div>
       <div class="rule">⬆ Breaking Any One Rule Leads To Direct Ban 🚫</div>
     </div>
+
+    <button id="readRulesButton" onclick="toggleRules()">Read Rules</button>
   </div>
 
   <script>
@@ -115,6 +129,9 @@
       const validPhoneNumbers = ['8887892186', '9915508192']; // Add your valid phone numbers here
 
       if (validPhoneNumbers.includes(phoneNumber)) {
+        const phoneNumberForm = document.getElementById('phoneNumberForm');
+        phoneNumberForm.style.display = 'none';
+
         const linkContainer = document.getElementById('linkContainer');
         const linkInput = document.getElementById('link');
         linkInput.value = `https://tv.raastudios.workers.dev?user=${phoneNumber}`;
@@ -129,6 +146,11 @@
       linkInput.select();
       document.execCommand('copy');
       alert('Link copied to clipboard!');
+    }
+
+    function toggleRules() {
+      const rulesContainer = document.getElementById('rulesContainer');
+      rulesContainer.style.display = rulesContainer.style.display === 'none' ? 'block' : 'none';
     }
   </script>
 </body>
