@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAASTUDIOS IPTV - Rules</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #rulesContainer {
+      margin-top: 20px;
+      text-align: left;
+      color: #888;
+    }
+
+    .rule {
+      margin-bottom: 10px;
+    }
+
+    #acceptRules {
+      background-color: #4285f4;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>RAASTUDIOS IPTV - Rules</h1>
+
+    <div id="rulesContainer">
+      <h2>Rules:</h2>
+      <div class="rule">❌ No Opening Playlist in Browser.</div>
+      <div class="rule">❌ No Sniffing.</div>
+      <div class="rule">❌ No Sharing - It's Only One Device.</div>
+      <div class="rule">❌ No Sharing Link In Any Social Media Including Telegram.</div>
+      <div class="rule">❌ Only Tivimate Is Supported - Ott Navigator Soon.</div>
+      <div class="rule">⬆ Breaking Any One Rule Leads To Direct Ban 🚫</div>
+
+      <form id="acceptRulesForm" action="link.html" method="post">
+        <input type="hidden" name="phoneNumber" value="{{phone number from previous page}}">
+        <button type="submit" id="acceptRules">Accept</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
