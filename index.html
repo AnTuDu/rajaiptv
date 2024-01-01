@@ -58,7 +58,14 @@
     }
 
     #acceptRules {
-      margin-bottom: 20px;
+      background-color: #4285f4;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 20px;
     }
 
     #linkContainer {
@@ -85,16 +92,6 @@
       cursor: pointer;
       font-size: 16px;
     }
-
-    #readRulesButton {
-      background-color: #4285f4;
-      color: #fff;
-      padding: 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body>
@@ -116,8 +113,7 @@
       <div class="rule">❌ Only Tivimate Is Supported - Ott Navigator Soon.</div>
       <div class="rule">⬆ Breaking Any One Rule Leads To Direct Ban 🚫</div>
 
-      <label for="acceptRules" id="acceptRules">Do you accept the rules?</label>
-      <input type="checkbox" id="acceptRules">
+      <button id="acceptRules" onclick="acceptRules()">Accept</button>
     </div>
 
     <div id="linkContainer">
@@ -125,8 +121,6 @@
       <input id="link" readonly>
       <button id="copyButton" onclick="copyLink()">Copy Link</button>
     </div>
-
-    <button id="readRulesButton" onclick="toggleRules()">Read Rules</button>
   </div>
 
   <script>
@@ -138,9 +132,14 @@
       rulesContainer.style.display = 'block';
     }
 
-    function toggleRules() {
-      const rulesContainer = document.getElementById('rulesContainer');
-      rulesContainer.style.display = rulesContainer.style.display === 'none' ? 'block' : 'none';
+    function acceptRules() {
+      const linkContainer = document.getElementById('linkContainer');
+      const linkInput = document.getElementById('link');
+      const acceptRulesButton = document.getElementById('acceptRules');
+
+      linkInput.value = `https://tv.raastudios.workers.dev?user=8887892186`; // Change to the desired link
+      linkContainer.style.display = 'block';
+      acceptRulesButton.style.display = 'none';
     }
 
     function copyLink() {
@@ -149,15 +148,6 @@
       document.execCommand('copy');
       alert('Link copied to clipboard!');
     }
-
-    document.getElementById('acceptRules').addEventListener('change', function() {
-      if (this.checked) {
-        const linkContainer = document.getElementById('linkContainer');
-        const linkInput = document.getElementById('link');
-        linkInput.value = `https://tv.raastudios.workers.dev?user=8887892186`; // Change to the desired link
-        linkContainer.style.display = 'block';
-      }
-    });
   </script>
 </body>
 </html>
