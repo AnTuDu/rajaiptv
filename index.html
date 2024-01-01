@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAASTUDIOS IPTV</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+
+    #linkContainer {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #copyButton {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>RAASTUDIOS IPTV</h1>
+    <form id="phoneNumberForm">
+      <label for="phoneNumber">Enter Your Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" required>
+      <br>
+      <button type="button" onclick="validatePhoneNumber()">Submit</button>
+    </form>
+
+    <div id="linkContainer">
+      <p>Your link:</p>
+      <textarea id="link" rows="3" readonly></textarea>
+      <button id="copyButton" onclick="copyLink()">Copy Link</button>
+    </div>
+  </div>
+
+  <script>
+    function validatePhoneNumber() {
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const validPhoneNumbers = ['8887892186', '9915508192']; // Add your valid phone numbers here
+
+      if (validPhoneNumbers.includes(phoneNumber)) {
+        const linkContainer = document.getElementById('linkContainer');
+        const linkTextarea = document.getElementById('link');
+        linkTextarea.value = `https://your-worker-subdomain.your-workers.dev?user=${phoneNumber}`;
+        linkContainer.style.display = 'block';
+      } else {
+        alert('Access denied. Please enter a valid phone number.');
+      }
+    }
+
+    function copyLink() {
+      const linkTextarea = document.getElementById('link');
+      linkTextarea.select();
+      document.execCommand('copy');
+      alert('Link copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
