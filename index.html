@@ -46,6 +46,21 @@
       font-size: 16px;
     }
 
+    #rulesContainer {
+      margin-top: 20px;
+      text-align: left;
+      color: #888;
+      display: none;
+    }
+
+    .rule {
+      margin-bottom: 10px;
+    }
+
+    #acceptRules {
+      margin-bottom: 20px;
+    }
+
     #linkContainer {
       display: none;
       margin-top: 20px;
@@ -71,17 +86,6 @@
       font-size: 16px;
     }
 
-    #rulesContainer {
-      display: none;
-      margin-top: 20px;
-      text-align: left;
-      color: #888;
-    }
-
-    .rule {
-      margin-bottom: 10px;
-    }
-
     #readRulesButton {
       background-color: #4285f4;
       color: #fff;
@@ -90,7 +94,6 @@
       border-radius: 4px;
       cursor: pointer;
       font-size: 14px;
-      margin-top: 10px;
     }
   </style>
 </head>
@@ -101,14 +104,8 @@
       <label for="phoneNumber">Enter Your Phone Number:</label>
       <input type="tel" id="phoneNumber" name="phoneNumber" required>
       <br>
-      <button type="button" onclick="validatePhoneNumber()">Submit</button>
+      <button type="button" onclick="showRules()">Submit</button>
     </form>
-
-    <div id="linkContainer">
-      <p>Your personalized link:</p>
-      <input id="link" readonly>
-      <button id="copyButton" onclick="copyLink()">Copy Link</button>
-    </div>
 
     <div id="rulesContainer">
       <h2>Rules:</h2>
@@ -118,27 +115,32 @@
       <div class="rule">❌ No Sharing Link In Any Social Media Including Telegram.</div>
       <div class="rule">❌ Only Tivimate Is Supported - Ott Navigator Soon.</div>
       <div class="rule">⬆ Breaking Any One Rule Leads To Direct Ban 🚫</div>
+
+      <label for="acceptRules" id="acceptRules">Do you accept the rules?</label>
+      <input type="checkbox" id="acceptRules">
+    </div>
+
+    <div id="linkContainer">
+      <p>Your personalized link:</p>
+      <input id="link" readonly>
+      <button id="copyButton" onclick="copyLink()">Copy Link</button>
     </div>
 
     <button id="readRulesButton" onclick="toggleRules()">Read Rules</button>
   </div>
 
   <script>
-    function validatePhoneNumber() {
-      const phoneNumber = document.getElementById('phoneNumber').value;
-      const validPhoneNumbers = ['8887892186', '9915508192']; // Add your valid phone numbers here
+    function showRules() {
+      const phoneNumberForm = document.getElementById('phoneNumberForm');
+      phoneNumberForm.style.display = 'none';
 
-      if (validPhoneNumbers.includes(phoneNumber)) {
-        const phoneNumberForm = document.getElementById('phoneNumberForm');
-        phoneNumberForm.style.display = 'none';
+      const rulesContainer = document.getElementById('rulesContainer');
+      rulesContainer.style.display = 'block';
+    }
 
-        const linkContainer = document.getElementById('linkContainer');
-        const linkInput = document.getElementById('link');
-        linkInput.value = `https://tv.raastudios.workers.dev?user=${phoneNumber}`;
-        linkContainer.style.display = 'block';
-      } else {
-        alert('Access denied. Please enter a valid phone number.');
-      }
+    function toggleRules() {
+      const rulesContainer = document.getElementById('rulesContainer');
+      rulesContainer.style.display = rulesContainer.style.display === 'none' ? 'block' : 'none';
     }
 
     function copyLink() {
@@ -148,10 +150,14 @@
       alert('Link copied to clipboard!');
     }
 
-    function toggleRules() {
-      const rulesContainer = document.getElementById('rulesContainer');
-      rulesContainer.style.display = rulesContainer.style.display === 'none' ? 'block' : 'none';
-    }
+    document.getElementById('acceptRules').addEventListener('change', function() {
+      if (this.checked) {
+        const linkContainer = document.getElementById('linkContainer');
+        const linkInput = document.getElementById('link');
+        linkInput.value = `https://tv.raastudios.workers.dev?user=8887892186`; // Change to the desired link
+        linkContainer.style.display = 'block';
+      }
+    });
   </script>
 </body>
 </html>
