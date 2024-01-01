@@ -66,10 +66,17 @@
       <div class="rule">⬆ Breaking Any One Rule Leads To Direct Ban 🚫</div>
 
       <form id="acceptRulesForm" action="link.html" method="post">
-        <input type="hidden" name="phoneNumber" value="{{phone number from previous page}}">
+        <input type="hidden" name="phoneNumber" value="">
         <button type="submit" id="acceptRules">Accept</button>
       </form>
     </div>
   </div>
+
+  <script>
+    document.getElementById('acceptRules').addEventListener('click', function() {
+      const phoneNumberInput = document.getElementById('phoneNumber');
+      document.querySelector('input[name="phoneNumber"]').value = phoneNumberInput.value;
+    });
+  </script>
 </body>
 </html>
