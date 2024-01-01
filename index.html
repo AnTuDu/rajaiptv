@@ -82,7 +82,7 @@
       <label for="phoneNumber">Enter Your Phone Number:</label>
       <input type="tel" id="phoneNumber" required>
       <br>
-      <button type="button" id="submitBtn" onclick="showRules()">Next</button>
+      <button type="button" id="submitBtn" onclick="validatePhoneNumber()">Next</button>
     </form>
 
     <div id="rulesContainer">
@@ -105,6 +105,19 @@
   </div>
 
   <script>
+    const allowedPhoneNumbers = ['1234567890', '9876543210']; // Add your allowed phone numbers
+
+    function validatePhoneNumber() {
+      const phoneNumberInput = document.getElementById('phoneNumber');
+      const phoneNumber = phoneNumberInput.value.trim();
+
+      if (allowedPhoneNumbers.includes(phoneNumber)) {
+        showRules();
+      } else {
+        alert('Invalid phone number. Please enter an allowed phone number.');
+      }
+    }
+
     function showRules() {
       document.getElementById('rulesContainer').style.display = 'block';
       document.getElementById('submitBtn').style.display = 'none';
