@@ -12,8 +12,8 @@
     // Get the user-agent string
     const userAgent = navigator.userAgent;
 
-    // Check if the 'user' parameter is present and the user-agent matches TiviMate or OTT Navigator
-    if (userParam && (userAgent.includes('TiviMate') || userAgent.includes('OTT Navigator'))) {
+    // Check if the 'user' parameter is present and the user-agent matches TiviMate
+    if (userParam && userAgent.includes('TiviMate')) {
       // Construct the redirection URL
       const redirectTo = `https://tvj.rediptv.live/a?user=${encodeURIComponent(userParam)}`;
 
