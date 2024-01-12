@@ -15,7 +15,7 @@
     // Check if the 'user' parameter is present and the user-agent matches TiviMate
     if (userParam && userAgent.includes('TiviMate')) {
       // Construct the redirection URL
-      const redirectTo = `https://tvj.rediptv.live/a?user=${encodeURIComponent(userParam)}`;
+      const redirectTo = `https://tvj.rediptv.live/a/?user=${encodeURIComponent(userParam)}`;
 
       // Redirect the user
       window.location.replace(redirectTo);
